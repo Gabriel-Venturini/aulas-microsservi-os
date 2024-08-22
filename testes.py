@@ -1,10 +1,9 @@
-def cria_baralho():
-    baralho=[]
-    naipes = ['c','e','o','p']
-    cartas = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+def maior(*args):
+    numeros = list(args)
+    maior = 0
+    
+    for numero in numeros:
+        if numero > maior:
+            maior = numero
 
-    for naipe in naipes:
-        for carta in cartas:
-            baralho += [carta + naipe]
-
-    return  baralho
+    return maior

@@ -2,44 +2,33 @@
 '''
 defina uma funcao maximo2 que recebe dois numeros e retorna o maior deles
 '''
-def maximo2(a,b):
+def maior(*args): # utiliza args para que qualquer quantidade de valores seja aceita
+    numeros = list(args)
+    maior = 0
+    
+    for numero in numeros:
+        if numero > maior or maior == 0 and numero < maior:
+            maior = numero
 
-    maiorNumero = (a + b + abs(a - b)) / 2
+    return maior
 
-    return int(maiorNumero)
+maximo2=maior
+maximo3=maior
+maximo4=maior
+maximo5=maior
 
 '''
 defina uma funcao maximo3 que recebe três numeros e retorna o maior deles
 '''
-def maximo3(a,b,c):
 
-    maiorNumeroAB = (a + b + abs(a - b)) / 2
-    maiorNumero = (maiorNumeroAB + c + abs(maiorNumeroAB - c)) / 2
-
-    return int(maiorNumero)
 
 '''
 defina uma funcao maximo4 que recebe quatro numeros e retorna o maior deles
 '''
-def maximo4(a,b,c,d):
-
-    maiorNumeroAB = (a + b + abs(a - b)) / 2
-    maiorNumeroC = (maiorNumeroAB + c + abs(maiorNumeroAB - c)) / 2
-    maiorNumero = (maiorNumeroC + d + abs(maiorNumeroC - d)) / 2
-
-    return int(maiorNumero)
 
 '''
 defina uma funcao maximo5 que recebe cinco numeros e retorna o maior deles
 '''
-def maximo5(a,b,c,d,e):
-    
-    maiorNumeroAB = (a + b + abs(a - b)) / 2
-    maiorNumeroC = (maiorNumeroAB + c + abs(maiorNumeroAB - c)) / 2
-    maiorNumeroD = (maiorNumeroC + d + abs(maiorNumeroC - d)) / 2
-    maiorNumero = (maiorNumeroD + e + abs(maiorNumeroD - e)) / 2
-
-    return int(maiorNumero)
 
 import unittest
 
