@@ -28,33 +28,45 @@ def cresce(lista):
     lista += proxValor
     return lista
 
-'''
-Explicacao
 
-As próximas duas funções tem a ver com baralho.
+# Explicacao
 
-A idéia é representar cada carta como uma string de 2 letras:
-    as cartas sao 'A' (ás) 2,3,4,5,...,10,'J','Q' e 'K'
-    os naipes sao 'o' (ouros), 'c' (copas), 'e' (espadas) e 'p' (paus)
+# As próximas duas funções tem a ver com baralho.
+
+# A idéia é representar cada carta como uma string de 2 letras:
+#     as cartas sao 'A' (ás) 2,3,4,5,...,10,'J','Q' e 'K'
+#     os naipes sao 'o' (ouros), 'c' (copas), 'e' (espadas) e 'p' (paus)
     
-O J de ouros, por exemplo, é representado pela string 'Jo'. O ás de copas,
-pela string 'Ac'
-'''
+# O J de ouros, por exemplo, é representado pela string 'Jo'. O ás de copas,
+# pela string 'Ac'
+# '''
 
-'''
-faça uma função que recebe um naipe de cartas ('o', que significa ouros,
-'p', que significa paus, 'c' de copas ou 'e' de espadas) e retorna 
-uma lista com todas as cartas desse naipe.
+# '''
+# faça uma função que recebe um naipe de cartas ('o', que significa ouros,
+# 'p', que significa paus, 'c' de copas ou 'e' de espadas) e retorna 
+# uma lista com todas as cartas desse naipe.
 
-Entao, se você receber 'c', deve retornar deve retornar uma lista com 13 cartas, 
-o ás de copas representado pela string 'Ac', os números '2c','3c',...'10c'
-e as figuras,  'Jc', 'Qc', 'Kc'.
+# Entao, se você receber 'c', deve retornar deve retornar uma lista com 13 cartas, 
+# o ás de copas representado pela string 'Ac', os números '2c','3c',...'10c'
+# e as figuras,  'Jc', 'Qc', 'Kc'.
 
-Dica: para juntar duas strings, faça nova='a'+'b'
-Dica: para transformar um numero n em string, faça str(n)
-'''
-def cria_naipe(naipe):
-    pass #implemente aqui a funcao
+# Dica: para juntar duas strings, faça nova='a'+'b'
+# Dica: para transformar um numero n em string, faça str(n)
+
+# < A 1 2 3 4 5 6 7 8 9 10 J Q K >
+# < o p c e >
+
+
+def cria_naipe(naipe): # o naipe deve ser === naipes para ser aceito
+    naipes = ['o','p','c','e']
+    cartas = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+    cartaCorreta = []
+    if naipe not in naipes:
+        pass
+    else:
+        for carta in cartas:
+            cartaCorreta += [carta + naipe]
+    return cartaCorreta
 
 #faça uma função que cria um baralho completo, com todas as 52 cartas
 #ela nao recebe nada e retorna uma lista.
@@ -130,14 +142,14 @@ class TestPartTwo(unittest.TestCase):
         self.assertEqual(cresce([5,6,7,8,9]),
                          [5,6,7,8,9,10])
 
-    # def test_10_cria_naipe(self):
-    #     copas_correto = set(['Ac', '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', 'Jc', 'Qc', 'Kc'])
-    #     copas_gerado = set(cria_naipe('c'))
-    #     self.assertEqual(copas_gerado,copas_correto)
-    #     paus_correto = set(['Ap', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', 'Jp', 'Qp', 'Kp'])
-    #     paus_gerado = set(cria_naipe('p'))
-    #     self.assertEqual(paus_gerado,paus_correto)
-    
+    def test_10_cria_naipe(self):
+        copas_correto = set(['Ac', '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', 'Jc', 'Qc', 'Kc'])
+        copas_gerado = set(cria_naipe('c'))
+        self.assertEqual(copas_gerado,copas_correto)
+        paus_correto = set(['Ap', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', 'Jp', 'Qp', 'Kp'])
+        paus_gerado = set(cria_naipe('p'))
+        self.assertEqual(paus_gerado,paus_correto)
+
     # def test_11_cria_baralho(self):
     #     baralho_correto = set(['Ac', '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', 'Jc', 'Qc', 'Kc', 'Ae', '2e', '3e', '4e', '5e', '6e', '7e', '8e', '9e', '10e', 'Je', 'Qe', 'Ke', 'Ao', '2o', '3o', '4o', '5o', '6o', '7o', '8o', '9o', '10o', 'Jo', 'Qo', 'Ko', 'Ap', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', 'Jp', 'Qp', 'Kp'])
     #     baralho_gerado = set(cria_baralho())
