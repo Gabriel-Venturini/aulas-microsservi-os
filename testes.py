@@ -1,10 +1,10 @@
-def cria_naipe(naipe): # o naipe deve ser === naipes para ser aceito
-    naipes = ['o','p','c','e']
+def cria_baralho():
+    baralho=[]
+    naipes = ['c','e','o','p']
     cartas = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
-    cartaCorreta = []
-    if naipe not in naipes:
-        pass
-    else:
+
+    for naipe in naipes:
         for carta in cartas:
-            cartaCorreta += [carta + naipe]
-    return cartaCorreta
+            baralho += [carta + naipe]
+
+    return  baralho
