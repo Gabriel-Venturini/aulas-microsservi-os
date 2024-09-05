@@ -80,8 +80,30 @@ Defina uma função merge que faz o seguinte:
        * Continue fazendo isso até adicionar todos os elementos
        de L1 e L2 na resposta
 '''
-def merge(lista1,lista2):
-    return lista1
+def merge(lista1, lista2):
+    i1 = 0
+    i2 = 0
+    novaLista = []
+    range1 = len(lista1)
+    range2 = len(lista2)
+
+    while i1 < range1 and i2 < range2:
+        if lista1[i1] < lista2[i2]:
+            novaLista.append(lista1[i1])
+            i1 += 1
+        else:
+            novaLista.append(lista2[i2])
+            i2 += 1
+
+    # Adiciona os elementos restantes de lista1, se houver
+    if i1 < range1:
+        novaLista.extend(lista1[i1:])
+    
+    # Adiciona os elementos restantes de lista2, se houver
+    if i2 < range2:
+        novaLista.extend(lista2[i2:])
+
+    return novaLista
 
 
 
