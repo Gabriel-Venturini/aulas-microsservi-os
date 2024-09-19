@@ -149,7 +149,6 @@ def ids_dos_melhor_classificados(dados,numero_de_times):
     while i < numero_de_times:
         lista_melhores.append(dados['fases']['2700']['classificacao']['grupo']['Único'][i])
         i += 1
-
     return lista_melhores
 
 '''
@@ -171,14 +170,8 @@ Usando as duas funcoes anteriores, podemos fazer uma que retorna os nomes dos cl
 '''
 
 def nomes_classificados_libertadores(dados):
-    nomes_classificados = []
     id_classificados = classificados_libertadores(dados)
-    i = 0
-    while i < len(id_classificados):
-        nomes_classificados.append(dados['equipes'][id_classificados[i]]['nome-comum'])
-        i += 1
-    return nomes_classificados
-
+    return [dados['equipes'][id]['nome-comum'] for id in id_classificados]
 
 '''
 Nos nossos dados, cada time tem um id, uma identificacao numerica.
