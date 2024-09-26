@@ -337,8 +337,18 @@ com a pesquisa (e pode ser vazia, se não achar ninguém)
 # testes busca imprecisa
 
 
-def busca_imprecisa_por_nome_de_time(dados,nome_time):
-    pass
+def busca_imprecisa_por_nome_de_time(dados,procurado):
+    lista_ids = []
+    dic_equipes = dados['equipes']
+    for id_time in dic_equipes.keys():
+        nome_comum = (dados['equipes'][id_time]['nome-comum'])
+        nome_slug  = (dados['equipes'][id_time]['nome-slug'])
+        sigla      = (dados['equipes'][id_time]['sigla'])
+        nome       = (dados['equipes'][id_time]['nome'])
+        if ((procurado in nome_comum) or (procurado in nome_slug) or
+            (procurado in sigla)      or (procurado in nome)):
+            lista_ids.append(id_time)
+    return lista_ids
 
 #ids dos jogos de um time
 
