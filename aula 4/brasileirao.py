@@ -576,14 +576,14 @@ class TestStringMethods(unittest.TestCase):
         estadios = dicionario_id_estadio_e_nro_jogos(dados)
         self.assertEqual(estadios['72'],17)
     
-    # def test_014_busca_imprecisa_por_nome_de_time(self):
-    #     dados = pega_dados()
-    #     ids_times = busca_imprecisa_por_nome_de_time(dados,'Paulo')
-    #     self.assertTrue('24' in ids_times)
-    #     ids_times = busca_imprecisa_por_nome_de_time(dados,'SPA')
-    #     self.assertTrue('24' in ids_times)
-    #     ids_times = busca_imprecisa_por_nome_de_time(dados,'anto')
-    #     self.assertTrue('22' in ids_times)
+    def test_014_busca_imprecisa_por_nome_de_time(self):
+        dados = pega_dados()
+        ids_times = busca_imprecisa_por_nome_de_time(dados,'Paulo')
+        self.assertTrue('24' in ids_times)
+        ids_times = busca_imprecisa_por_nome_de_time(dados,'SPA')
+        self.assertTrue('24' in ids_times)
+        ids_times = busca_imprecisa_por_nome_de_time(dados,'anto')
+        self.assertTrue('22' in ids_times)
     
     def test_015_ids_de_jogos_de_um_time(self):
         dados = pega_dados()
