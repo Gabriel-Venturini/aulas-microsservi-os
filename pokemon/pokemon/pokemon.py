@@ -207,8 +207,12 @@ site_treinador = "http://127.0.0.1:9000" #quando você estiver executando o
 #servidor do treinador, essa URL estará ativa
 
 def cadastrar_treinador(nome):
-    pass
-
+    url = f'http://127.0.0.1:9000/treinador/{nome}'
+    r = requests.put(url)
+    if r.status_code == 202:
+        return True
+    if r.status_code == 303:
+        return False
 
 
 #nao precisa mexer nas proximas excessões
